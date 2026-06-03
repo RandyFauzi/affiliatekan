@@ -22,7 +22,8 @@ class TrackingService
         int $affiliateId,
         int $vendorId,
         ?string $ipAddress,
-        ?string $userAgent
+        ?string $userAgent,
+        ?string $refererUrl = null
     ): ClickLog|false {
         $spamPreventionWindowStart = now()->subMinutes(5);
 
@@ -35,6 +36,7 @@ class TrackingService
             'vendor_id' => $vendorId,
             'ip_address' => $ipAddress,
             'user_agent' => $userAgent,
+            'referer_url' => $refererUrl,
             'clicked_at' => now(),
         ]);
     }

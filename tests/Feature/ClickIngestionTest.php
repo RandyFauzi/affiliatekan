@@ -42,6 +42,7 @@ class ClickIngestionTest extends TestCase
             'vendor_id' => $vendor->id,
             'ip_address' => '203.0.113.10',
             'user_agent' => 'AffiliatekanClickTest/1.0',
+            'referer_url' => 'https://toko-ikan.test/produk/kakap-premium?ref=' . $affiliate->referral_code,
         ]);
     }
 

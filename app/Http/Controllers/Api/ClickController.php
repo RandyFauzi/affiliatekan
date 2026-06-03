@@ -56,7 +56,8 @@ class ClickController extends Controller
             $affiliate->id,
             $resolvedVendor->id,
             $request->ip(),
-            $request->userAgent()
+            $request->userAgent(),
+            $request->headers->get('Referer')
         );
 
         return response()->json([

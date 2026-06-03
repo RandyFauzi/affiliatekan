@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="23.3354mm" height="31.4984mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 129.7 175.07"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="737" font-variant="normal" style="fill-rule:nonzero" font-weight="700">
+	<font-face 
+		font-family="Poppins">
+		<font-face-src>
+			<font-face-name name="Poppins Bold"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="737" d="M541.002 0l180.99 0 -254.003 701.995 -197.998 0 -253.978 -701.995 178.997 0 41.9852 123.988 261.997 0 42.0101 -123.988zm-86.0124 255.995l-172.996 0 86.0124 257.016 86.9836 -257.016z"/>
+   <glyph unicode="a" horiz-adv-x="679" d="M27.9901 280.001c0,-176.009 109.022,-287.995 245.013,-287.995 82.9992,0 141.993,38.0008 172.996,86.9836l0 -78.99 171.004 0 0 558.01 -171.004 0 0 -79.0149c-30.0072,49.0076 -89.0007,87.0085 -172,87.0085 -136.987,0 -246.009,-109.993 -246.009,-286.002zm418.009 -0.99609c0,-89.0007 -57.0013,-138.008 -121.996,-138.008 -63.9988,0 -121.996,50.0037 -121.996,139.004 0,89.0007 57.9974,136.987 121.996,136.987 64.9949,0 121.996,-48.9827 121.996,-137.983z"/>
+   <glyph unicode="e" horiz-adv-x="616" d="M307.991 428.991c57.0013,0 105.013,-34.9877 105.013,-95.9982l-214.01 0c10.0107,62.0066 53.0169,95.9982 108.997,95.9982zm267.002 -243.992l-181.986 0c-13.9951,-30.0072 -41.014,-53.9881 -89.0007,-53.9881 -55.0091,0 -100.007,33.9916 -106.009,106.98l387.006 0c1.99218,17.0082 2.98827,34.0165 2.98827,50.0037 0,170.008 -114.999,278.009 -277.984,278.009 -165.998,0 -282.018,-109.993 -282.018,-286.999 0,-177.005 118.012,-286.999 282.018,-286.999 138.98,0 237.991,83.9953 264.985,192.993z"/>
+   <glyph unicode="f" horiz-adv-x="360" d="M78.99 0l171.004 0 0 415.992 92.0138 0 0 142.018 -92.0138 0 0 4.98045c0,59.0184 23.0097,79.0149 89.0007,75.0056l0 145.006c-169.983,8.98972 -260.004,-63.0027 -260.004,-209.005l0 -15.9873 -61.9817 0 0 -142.018 61.9817 0 0 -415.992z"/>
+   <glyph unicode="i" horiz-adv-x="294" d="M62.0066 0l171.004 0 0 558.01 -171.004 0 0 -558.01zm85.9875 616.007c60.0144,0 101.004,40.9891 101.004,91.9889 0,51.9959 -40.9891,93.0099 -101.004,93.0099 -60.9856,0 -102,-41.014 -102,-93.0099 0,-50.9998 41.014,-91.9889 102,-91.9889z"/>
+   <glyph unicode="k" horiz-adv-x="617" d="M62.0066 0l171.004 0 0 234.007 169.983 -234.007 212.018 0 -234.007 278.009 231.989 280.001 -210.997 0 -168.987 -227.009 0 408.995 -171.004 0 0 -739.996z"/>
+   <glyph unicode="l" horiz-adv-x="294" d="M62.0066 0l171.004 0 0 739.996 -171.004 0 0 -739.996z"/>
+   <glyph unicode="n" horiz-adv-x="674" d="M446.996 0l170.008 0 0 325.995c0,150.011 -86.0124,238.016 -215.006,238.016 -75.0056,0 -134.995,-33.0204 -168.987,-80.011l0 74.0095 -171.004 0 0 -558.01 171.004 0 0 303.011c0,76.0017 41.9852,117.987 106.98,117.987 65.0198,0 107.005,-41.9852 107.005,-117.987l0 -303.011z"/>
+   <glyph unicode="t" horiz-adv-x="406" d="M89.0007 193.989c0,-144.981 81.007,-193.989 197.002,-193.989l87.0085 0 0 145.006 -61.0105 0c-38.0008,0 -51.9959,13.9951 -51.9959,46.9906l0 223.996 111.985 0 0 142.018 -111.985 0 0 135.991 -171.004 0 0 -135.991 -68.0081 0 0 -142.018 68.0081 0 0 -222.004z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Poppins";font-variant:normal;font-weight:bold;src:url("#FontID0") format(svg)}
+    .fil3 {fill:#0F172A}
+    .fil4 {fill:#FF6B00}
+    .fil2 {fill:#FF6B00;fill-rule:nonzero}
+    .fil1 {fill:#FF9E5E;fill-rule:nonzero}
+    .fil0 {fill:#FFD0B2;fill-rule:nonzero}
+    .fnt0 {font-weight:bold;font-size:22.32px;font-family:'Poppins'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2035017273216">
+   <g>
+    <polygon class="fil0" points="87.05,28.41 117.48,40.58 117.48,131.89 87.05,119.71 "/>
+    <polygon class="fil1" points="56.61,16.23 97.19,32.46 97.19,144.06 56.61,127.83 "/>
+    <polygon class="fil2" points="16.03,0 66.76,20.29 66.76,152.18 16.03,131.89 "/>
+   </g>
+   <text x="-0.36" y="174.89"  class="fil3 fnt0">A</text>
+   <text x="15.87" y="174.89"  class="fil3 fnt0">f</text>
+   <text x="31.49" y="174.89"  class="fil3 fnt0">i</text>
+   <text x="37.63" y="174.89"  class="fil3 fnt0">l</text>
+   <text x="43.99" y="174.89"  class="fil3 fnt0">i</text>
+   <text x="50.35" y="174.89"  class="fil3 fnt0">a</text>
+   <text x="65.28" y="174.89"  class="fil3 fnt0">t</text>
+   <text x="74.12" y="174.89"  class="fil3 fnt0">e</text>
+   <text x="23.68" y="174.89"  class="fil3 fnt0">f</text>
+   <text x="87.65" y="174.89"  class="fil4 fnt0">k</text>
+   <text x="101.22" y="174.89"  class="fil4 fnt0">a</text>
+   <text x="115.93" y="174.89"  class="fil4 fnt0">n</text>
+  </g>
+ </g>
+</svg>

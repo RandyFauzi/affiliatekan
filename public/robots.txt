@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /vendor/*
+Disallow: /affiliate/dashboard/*
+Disallow: /affiliate/transactions/*
+Disallow: /affiliate/programs/*
+Disallow: /affiliate/payouts/*
+Disallow: /admin/*
+
+Sitemap: https://affiliatekan-by.autogrowthid.site/sitemap.xml

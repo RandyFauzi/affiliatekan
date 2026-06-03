@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Ikan Segar Budi - Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#FF6B00',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-800 relative overflow-x-hidden">
+
+    <nav class="bg-white shadow-sm border-b border-slate-100 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-slate-900">🐟 Toko Budi<span class="text-brandOrange">.</span></h1>
+            <div class="space-x-6 hidden md:block">
+                <a href="#" class="text-brandOrange font-bold">Beranda</a>
+                <a href="#katalog" class="text-slate-500 hover:text-brandOrange font-medium transition">Katalog Produk</a>
+                <a href="#tentang" class="text-slate-500 hover:text-brandOrange font-medium transition">Tentang Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-slate-900 py-20 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Peralatan & Ikan Koi Kelas Dunia</h2>
+            <p class="text-lg text-slate-300 mb-8">Penuhi kebutuhan kolam impian Anda bersama Toko Budi. Kualitas terjamin, pengiriman aman ke seluruh Indonesia.</p>
+            <a href="#katalog" class="inline-block bg-brandOrange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-transform hover:-translate-y-1 shadow-lg">
+                Lihat Katalog
+            </a>
+        </div>
+    </header>
+
+    <main id="katalog" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-slate-900">Produk Terlaris Kami</h3>
+            <p class="text-slate-500 mt-2">Pilih produk dan nikmati kemudahan transaksinya.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 hover:shadow-lg transition-all group">
+                <div class="overflow-hidden rounded-xl mb-4">
+                    <img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?auto=format&fit=crop&q=80&w=400&h=300" alt="Ikan Koi" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="text-lg font-bold mb-1 text-slate-900">Ikan Koi Super Class</h3>
+                <p class="text-brandOrange font-extrabold text-xl mb-6">Rp 150.000</p>
+                <button onclick="prosesBeli('Ikan Koi Super Class', 150000)" class="w-full bg-slate-100 hover:bg-brandOrange hover:text-white text-slate-800 font-bold py-3 rounded-xl transition-colors">
+                    Beli Sekarang
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 hover:shadow-lg transition-all group">
+                <div class="overflow-hidden rounded-xl mb-4">
+                    <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&q=80&w=400&h=300" alt="Aquarium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="text-lg font-bold mb-1 text-slate-900">Aquarium Minimalis Set</h3>
+                <p class="text-brandOrange font-extrabold text-xl mb-6">Rp 450.000</p>
+                <button onclick="prosesBeli('Aquarium Minimalis Set', 450000)" class="w-full bg-slate-100 hover:bg-brandOrange hover:text-white text-slate-800 font-bold py-3 rounded-xl transition-colors">
+                    Beli Sekarang
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 hover:shadow-lg transition-all group">
+                <div class="overflow-hidden rounded-xl mb-4">
+                    <img src="https://images.unsplash.com/photo-1582282577239-6887a0db149c?auto=format&fit=crop&q=80&w=400&h=300" alt="Pakan Ikan" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="text-lg font-bold mb-1 text-slate-900">Pakan Koi Premium (1kg)</h3>
+                <p class="text-brandOrange font-extrabold text-xl mb-6">Rp 75.000</p>
+                <button onclick="prosesBeli('Pakan Koi Premium', 75000)" class="w-full bg-slate-100 hover:bg-brandOrange hover:text-white text-slate-800 font-bold py-3 rounded-xl transition-colors">
+                    Beli Sekarang
+                </button>
+            </div>
+
+        </div>
+
+        <div class="mt-20 border-t-2 border-slate-200 pt-10">
+            <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden text-white">
+                
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-brandOrange opacity-10 blur-3xl"></div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 relative z-10">
+                    <div>
+                        <h2 class="text-2xl font-extrabold flex items-center gap-2">
+                            <svg class="w-6 h-6 text-brandOrange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            Performa Afiliasi
+                        </h2>
+                        <p class="text-slate-400 mt-1">Data ditarik secara real-time dari API Affiliatekan.</p>
+                    </div>
+                    
+                    <button onclick="bukaDashboardPenuh()" id="btn-sso" class="mt-4 md:mt-0 bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-[0_0_15px_rgba(255,107,0,0.4)] flex items-center gap-2">
+                        Buka Affiliatekan Penuh
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+                    <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700">
+                        <p class="text-slate-400 text-sm font-semibold mb-1">Total Klik</p>
+                        <p class="text-3xl font-bold" id="embed-clicks">0</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700">
+                        <p class="text-slate-400 text-sm font-semibold mb-1">Konversi</p>
+                        <p class="text-3xl font-bold" id="embed-conversions">0</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700">
+                        <p class="text-slate-400 text-sm font-semibold mb-1">Tagihan Pending</p>
+                        <p class="text-2xl font-bold text-brandOrange" id="embed-pending">Rp 0</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700">
+                        <p class="text-slate-400 text-sm font-semibold mb-1">Total Komisi</p>
+                        <p class="text-2xl font-bold text-emerald-400" id="embed-commissions">Rp 0</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 mt-10">
+        <p>&copy; 2026 Toko Ikan Segar Budi. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <div id="toast-success" class="fixed bottom-5 right-5 transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <div class="bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4">
+            <div class="bg-emerald-500 text-white rounded-full p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <div>
+                <p class="font-bold">Pesanan Berhasil!</p>
+                <p class="text-sm text-slate-300" id="toast-message">Memproses...</p>
+            </div>
+        </div>
+    </div>
+
+    <script 
+        src="http://localhost:8000/tracker.js" 
+        data-api-key="vnd_DF6zta2reK4RZuOb263FUzkL3NeERpaAcAw1Rn2o"
+        data-api-endpoint="http://localhost:8000/api/v1/conversions">
+    </script>
+
+    <script>
+        function prosesBeli(namaProduk, harga) {
+            // 1. Buat ID Pesanan Acak
+            const orderId = 'INV-' + Math.floor(100000 + Math.random() * 900000);
+            
+            // 2. Eksekusi Script Afiliasi Secara Diam-diam
+            if (typeof window.AffiliatekanTracker !== 'undefined') {
+                window.AffiliatekanTracker.trackConversion(orderId, harga);
+            }
+
+            // 3. Tampilkan Animasi Notifikasi Sukses ke Pengunjung
+            const toast = document.getElementById('toast-success');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.innerText = `Pembelian ${namaProduk} (ID: ${orderId}) sedang diproses.`;
+            toast.classList.remove('translate-y-full', 'opacity-0');
+
+            // Sembunyikan notifikasi setelah 4 detik
+            setTimeout(() => {
+                toast.classList.add('translate-y-full', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+
+    <script>
+        const API_BASE_URL = "http://localhost:8000/api/v1";
+        // Menggunakan API Key yang sudah diverifikasi (dari tag tracker di atas)
+        const VENDOR_API_KEY = "vnd_DF6zta2reK4RZuOb263FUzkL3NeERpaAcAw1Rn2o"; 
+
+        // 1. Fungsi Mengambil Data Statistik (GET)
+        async function fetchDashboardStats() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/vendor/stats`, {
+                    method: 'GET',
+                    headers: {
+                        'X-API-KEY': VENDOR_API_KEY,
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update angka di HTML
+                    document.getElementById('embed-clicks').innerText = data.total_clicks || 0;
+                    document.getElementById('embed-conversions').innerText = data.total_conversions || 0;
+                    
+                    // Format mata uang Rupiah
+                    const formatRp = (angka) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(angka);
+                    
+                    document.getElementById('embed-pending').innerText = formatRp(data.pending_payouts || 0);
+                    document.getElementById('embed-commissions').innerText = formatRp(data.total_commissions || 0);
+                } else {
+                    console.error("Gagal mengambil data. Status:", response.status);
+                }
+            } catch (error) {
+                console.error("Koneksi API terputus:", error);
+            }
+        }
+
+        // 2. Fungsi SSO - Buka Dashboard Tanpa Login (POST)
+        async function bukaDashboardPenuh() {
+            const btnSso = document.getElementById('btn-sso');
+            const teksAsli = btnSso.innerHTML;
+            btnSso.innerHTML = "Membuat Tiket SSO...";
+            btnSso.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/vendor/sso-ticket`, {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': VENDOR_API_KEY,
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    // Lemparkan user ke URL SSO yang diberikan oleh Laravel
+                    window.location.href = data.sso_url;
+                } else {
+                    alert("Gagal membuat sesi SSO. Pastikan Endpoint API SSO sudah dibuat di Laravel.");
+                    btnSso.innerHTML = teksAsli;
+                    btnSso.disabled = false;
+                }
+            } catch (error) {
+                alert("Koneksi ke server gagal.");
+                btnSso.innerHTML = teksAsli;
+                btnSso.disabled = false;
+            }
+        }
+
+        // Jalankan fetch otomatis saat halaman dibuka
+        window.addEventListener('DOMContentLoaded', fetchDashboardStats);
+    </script>
+</body>
+</html>

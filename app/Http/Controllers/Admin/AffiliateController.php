@@ -36,7 +36,7 @@ class AffiliateController extends Controller
     {
         $validatedPayload = $request->validated();
 
-        DB::transaction(function () use ($validatedPayload): void {
+        $affiliate = DB::transaction(function () use ($validatedPayload) {
             $affiliateUser = User::query()->create([
                 'name' => $validatedPayload['name'],
                 'email' => $validatedPayload['email'],
@@ -44,7 +44,7 @@ class AffiliateController extends Controller
                 'role' => 'affiliate',
             ]);
 
-            Affiliate::query()->create([
+            return Affiliate::query()->create([
                 'user_id' => $affiliateUser->id,
                 'referral_code' => $validatedPayload['referral_code'] ?: $this->trackingService->generateAffiliateCode(),
                 'bank_name' => $validatedPayload['bank_name'] ?: null,
@@ -52,6 +52,11 @@ class AffiliateController extends Controller
                 'bank_account_name' => $validatedPayload['bank_account_name'] ?: null,
             ]);
         });
+
+        \App\Services\AuditLogger::log('admin.affiliate.create', [
+            'affiliate_id' => $affiliate->id,
+            'referral_code' => $affiliate->referral_code,
+        ]);
 
         return redirect()
             ->route('admin.affiliates.index')
@@ -76,6 +81,11 @@ class AffiliateController extends Controller
             ]);
         });
 
+        \App\Services\AuditLogger::log('admin.affiliate.update', [
+            'affiliate_id' => $affiliate->id,
+            'referral_code' => $affiliate->referral_code,
+        ]);
+
         return redirect()
             ->route('admin.affiliates.index')
             ->with('status', 'Affiliate updated successfully.');
@@ -83,6 +93,9 @@ class AffiliateController extends Controller
 
     public function destroy(Affiliate $affiliate): RedirectResponse
     {
+        $affiliateId = $affiliate->id;
+        $referralCode = $affiliate->referral_code;
+
         DB::transaction(function () use ($affiliate): void {
             $managedAffiliateUser = $affiliate->user;
 
@@ -94,6 +107,11 @@ class AffiliateController extends Controller
 
             $affiliate->delete();
         });
+
+        \App\Services\AuditLogger::log('admin.affiliate.delete', [
+            'affiliate_id' => $affiliateId,
+            'referral_code' => $referralCode,
+        ]);
 
         return redirect()
             ->route('admin.affiliates.index')

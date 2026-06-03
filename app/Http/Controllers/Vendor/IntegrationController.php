@@ -86,6 +86,13 @@ PHP;
 
         $authenticatedVendor->update($validatedPayload);
 
+        \App\Services\AuditLogger::log('vendor.settings.update', [
+            'vendor_id' => $authenticatedVendor->id,
+            'website_url' => $validatedPayload['website_url'] ?? null,
+            'webhook_url' => $validatedPayload['webhook_url'] ?? null,
+            'cookie_duration_days' => (int) ($validatedPayload['cookie_duration_days'] ?? 30),
+        ]);
+
         return back()->with('status', 'Pengaturan integrasi berhasil disimpan.');
     }
 

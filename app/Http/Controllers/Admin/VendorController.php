@@ -30,7 +30,7 @@ class VendorController extends Controller
     {
         $validatedPayload = $request->validated();
 
-        DB::transaction(function () use ($validatedPayload): void {
+        $vendor = DB::transaction(function () use ($validatedPayload) {
             $vendorUser = User::query()->create([
                 'name' => $validatedPayload['name'],
                 'email' => $validatedPayload['email'],
@@ -38,7 +38,7 @@ class VendorController extends Controller
                 'role' => 'vendor',
             ]);
 
-            Vendor::query()->create([
+            return Vendor::query()->create([
                 'user_id' => $vendorUser->id,
                 'company_name' => $validatedPayload['company_name'],
                 'website_url' => $validatedPayload['website_url'] ?? null,
@@ -47,6 +47,12 @@ class VendorController extends Controller
                 'cookie_duration_days' => $validatedPayload['cookie_duration_days'] ?? 30,
             ]);
         });
+
+        \App\Services\AuditLogger::log('admin.vendor.create', [
+            'vendor_id' => $vendor->id,
+            'company_name' => $vendor->company_name,
+            'website_url' => $vendor->website_url,
+        ]);
 
         return redirect()
             ->route('admin.vendors.index')
@@ -72,6 +78,12 @@ class VendorController extends Controller
             ]);
         });
 
+        \App\Services\AuditLogger::log('admin.vendor.update', [
+            'vendor_id' => $vendor->id,
+            'company_name' => $vendor->company_name,
+            'website_url' => $vendor->website_url,
+        ]);
+
         return redirect()
             ->route('admin.vendors.index')
             ->with('status', 'Vendor updated successfully.');
@@ -79,6 +91,9 @@ class VendorController extends Controller
 
     public function destroy(Vendor $vendor): RedirectResponse
     {
+        $vendorId = $vendor->id;
+        $companyName = $vendor->company_name;
+
         DB::transaction(function () use ($vendor): void {
             $managedVendorUser = $vendor->user;
 
@@ -90,6 +105,11 @@ class VendorController extends Controller
 
             $vendor->delete();
         });
+
+        \App\Services\AuditLogger::log('admin.vendor.delete', [
+            'vendor_id' => $vendorId,
+            'company_name' => $companyName,
+        ]);
 
         return redirect()
             ->route('admin.vendors.index')

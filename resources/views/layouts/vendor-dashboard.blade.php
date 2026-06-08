@@ -84,7 +84,72 @@
             ];
         @endphp
 
-        <div class="flex h-screen bg-slate-50 overflow-hidden">
+        <div x-data="{ mobileSidebarOpen: false }" class="flex h-screen bg-slate-50 overflow-hidden">
+            <!-- Mobile Sidebar Backdrop -->
+            <div 
+                x-show="mobileSidebarOpen" 
+                class="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm md:hidden"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                @click="mobileSidebarOpen = false"
+                x-cloak
+            ></div>
+
+            <!-- Mobile Sidebar Drawer -->
+            <aside 
+                x-show="mobileSidebarOpen"
+                class="fixed inset-y-0 left-0 z-50 w-64 bg-white flex flex-col h-full shadow-2xl md:hidden"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="-translate-x-full"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="-translate-x-full"
+                x-cloak
+            >
+                <div class="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
+                    <img src="{{ asset('images/Logo - Affilaitekan.svg') }}" alt="Logo Affiliatekan" class="h-8 w-auto">
+                    <button @click="mobileSidebarOpen = false" class="p-2 text-slate-400 hover:text-slate-600 rounded-xl bg-slate-50">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="flex-1 px-4 py-6 overflow-y-auto">
+                    <div class="space-y-2">
+                        @foreach ($vendorNavigationItems as $vendorNavigationItem)
+                            <a
+                                href="{{ $vendorNavigationItem['route'] }}"
+                                class="group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 {{ $vendorNavigationItem['active'] ? 'bg-orange-50 text-brandOrange' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800' }}"
+                            >
+                                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl {{ $vendorNavigationItem['active'] ? 'bg-white text-brandOrange shadow-sm' : 'bg-slate-50 text-slate-400 group-hover:bg-white group-hover:text-brandOrange' }}">
+                                    {!! $vendorNavigationItem['icon'] !!}
+                                </span>
+                                <span>{{ $vendorNavigationItem['label'] }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </nav>
+
+                <div class="p-4 pt-0">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button
+                            type="submit"
+                            class="inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 hover:text-slate-800"
+                        >
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Desktop Sidebar -->
             <aside class="w-64 bg-white border-r border-slate-100 flex-col h-full hidden md:flex">
                 <div class="px-6 py-7">
                     <div class="flex items-center gap-3">
@@ -129,44 +194,61 @@
                 </div>
             </aside>
 
-            <main class="flex-1 overflow-y-auto p-8">
-                <div class="w-full">
-                    <header class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-500">Welcome back, {{ $welcomeName }}</p>
-                            <h1 class="mt-1 text-3xl font-extrabold tracking-tight text-slate-800">Vendor Dashboard</h1>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <a
-                                href="{{ route('vendor.integration.index') }}"
-                                class="inline-flex items-center justify-center rounded-2xl bg-brandOrange px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-lg"
-                            >
-                                Integrasi API
-                            </a>
-                            <a href="{{ route('profile.edit') }}" class="group flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-2.5 shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:border-orange-200 hover:shadow-md transition-all duration-300">
-                                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-50 font-bold text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300">
-                                    {{ strtoupper(substr($welcomeName, 0, 1)) }}
-                                </div>
-                                <div class="min-w-0">
-                                    <p class="truncate text-sm font-semibold text-slate-800 group-hover:text-brandOrange transition-all duration-300">{{ $welcomeName }}</p>
-                                    <p class="truncate text-xs uppercase tracking-[0.24em] text-slate-400">Vendor</p>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-
-                    <div
-                        x-data="{ show: false }"
-                        x-init="setTimeout(() => show = true, 100)"
-                        x-show="show"
-                        x-transition.opacity.duration.500ms
+            <!-- Main Content Area with Mobile Top Bar Header -->
+            <div class="flex-1 flex flex-col overflow-hidden">
+                <!-- Mobile Header -->
+                <header class="bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between md:hidden">
+                    <img src="{{ asset('images/Logo - Affilaitekan.svg') }}" alt="Logo Affiliatekan" class="h-8 w-auto">
+                    <button 
+                        @click="mobileSidebarOpen = true" 
+                        class="p-2 text-slate-600 hover:text-slate-800 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
                     >
-                        {{ $slot }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-6 w-6">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </header>
+
+                <main class="flex-1 overflow-y-auto p-4 md:p-8">
+                    <div class="w-full">
+                        <header class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                            <div>
+                                <p class="text-sm font-semibold text-slate-500">Welcome back, {{ $welcomeName }}</p>
+                                <h1 class="mt-1 text-3xl font-extrabold tracking-tight text-slate-800">Vendor Dashboard</h1>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <a
+                                    href="{{ route('vendor.integration.index') }}"
+                                    class="inline-flex items-center justify-center rounded-2xl bg-brandOrange px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-lg"
+                                >
+                                    Integrasi API
+                                </a>
+                                <a href="{{ route('profile.edit') }}" class="group flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-2.5 shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:border-orange-200 hover:shadow-md transition-all duration-300">
+                                    <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-50 font-bold text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300">
+                                        {{ strtoupper(substr($welcomeName, 0, 1)) }}
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="truncate text-sm font-semibold text-slate-800 group-hover:text-brandOrange transition-all duration-300">{{ $welcomeName }}</p>
+                                        <p class="truncate text-xs uppercase tracking-[0.24em] text-slate-400">Vendor</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </header>
+
+                        <div
+                            x-data="{ show: false }"
+                            x-init="setTimeout(() => show = true, 100)"
+                            x-show="show"
+                            x-transition.opacity.duration.500ms
+                        >
+                            {{ $slot }}
+                        </div>
                     </div>
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
+
 
         <x-sweet-alert />
     </body>

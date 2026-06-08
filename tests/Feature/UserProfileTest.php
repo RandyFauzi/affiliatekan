@@ -73,6 +73,9 @@ class UserProfileTest extends TestCase
             'email' => 'vendor@test.com',
             'company_name' => 'New Company Name LLC',
             'website_url' => 'https://newcompany.com',
+            'commission_type' => 'percentage',
+            'commission_value' => 15,
+            'cookie_duration_days' => 45,
         ]);
 
         $response->assertRedirect('/profile');
@@ -83,6 +86,9 @@ class UserProfileTest extends TestCase
         $this->assertEquals('vendor@test.com', $user->email);
         $this->assertEquals('New Company Name LLC', $vendor->company_name);
         $this->assertEquals('https://newcompany.com', $vendor->website_url);
+        $this->assertEquals('percentage', $vendor->commission_type);
+        $this->assertEquals(15, $vendor->commission_value);
+        $this->assertEquals(45, $vendor->cookie_duration_days);
     }
 
     public function test_affiliate_can_update_profile_and_banking_details(): void

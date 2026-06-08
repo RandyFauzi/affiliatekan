@@ -20,12 +20,13 @@ class TenantRoleIsolationTest extends TestCase
         ]);
 
         $this->actingAs($affiliateUser)
-            ->get('/vendor/integration')
+            ->get('/tenant/integration')
             ->assertRedirect('/');
 
         $this->actingAs($affiliateUser)
-            ->get('/vendor/payouts')
+            ->get('/tenant/payouts')
             ->assertRedirect('/');
+
     }
 
     public function test_vendor_cannot_access_affiliate_routes(): void

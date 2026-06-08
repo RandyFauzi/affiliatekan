@@ -146,34 +146,36 @@ Route::middleware('auth')
             });
 
         Route::middleware('vendor')
+            ->prefix('tenant')
             ->group(function (): void {
-                Route::get('/vendor/dashboard', [VendorDashboardController::class, 'index'])
+                Route::get('/dashboard', [VendorDashboardController::class, 'index'])
                     ->name('vendor.dashboard.index');
 
-                Route::get('/vendor/packages', [App\Http\Controllers\Vendor\ProductController::class, 'index'])
+                Route::get('/packages', [App\Http\Controllers\Vendor\ProductController::class, 'index'])
                     ->name('vendor.products.index');
 
-                Route::get('/vendor/affiliates', [App\Http\Controllers\Vendor\AffiliateListController::class, 'index'])
+                Route::get('/affiliates', [App\Http\Controllers\Vendor\AffiliateListController::class, 'index'])
                     ->name('vendor.affiliates.index');
 
-                Route::get('/vendor/integration', [IntegrationController::class, 'index'])
+                Route::get('/integration', [IntegrationController::class, 'index'])
                     ->name('vendor.integration.index');
 
-                Route::put('/vendor/integration/settings', [IntegrationController::class, 'updateSettings'])
+                Route::put('/integration/settings', [IntegrationController::class, 'updateSettings'])
                     ->name('vendor.integration.settings.update');
 
-                Route::get('/vendor/integration-guide', [IntegrationController::class, 'index'])
+                Route::get('/integration-guide', [IntegrationController::class, 'index'])
                     ->name('vendor.integration.guide');
 
-                Route::get('/vendor/payouts', [PayoutController::class, 'index'])
+                Route::get('/payouts', [PayoutController::class, 'index'])
                     ->name('vendor.payouts.index');
 
-                Route::post('/vendor/payouts/{payoutId}/pay-manual', [PayoutController::class, 'payManual'])
+                Route::post('/payouts/{payoutId}/pay-manual', [PayoutController::class, 'payManual'])
                     ->name('vendor.payouts.pay-manual');
 
-                Route::post('/vendor/payouts/{payoutId}/process', [PayoutController::class, 'markAsProcessing'])
+                Route::post('/payouts/{payoutId}/process', [PayoutController::class, 'markAsProcessing'])
                     ->name('vendor.payouts.process');
             });
+
 
         Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');

@@ -852,3 +852,13 @@ Secara keseluruhan, Affiliatekan saat ini adalah fondasi yang cukup bersih untuk
 Keputusan arsitektural yang paling kuat di codebase ini adalah pemisahan logika komisi ke service serta penggunaan transaksi dan row locking untuk webhook conversion. Itu jauh lebih maintainable dan aman dibanding pendekatan controller-heavy biasa.
 
 Sebaliknya, area yang masih perlu dilengkapi adalah penyambungan click logging ke flow nyata, pemanfaatan `cookie_duration_days`, dan pelengkapan lifecycle payout/conversion agar lebih production-grade.
+
+## 13. Konfigurasi SMTP Email & Sandi Aplikasi (Gmail)
+
+Untuk keperluan pengiriman email (seperti reset password), sistem menggunakan Gmail dengan konfigurasi sebagai berikut:
+- **Email/Username**: `autogrowthid@gmail.com`
+- **Sandi Aplikasi (App Password)**: `fpll yhqb ubdn smee` (ditulis rapat di `.env` sebagai `fpllyhqbubdnsmee`)
+- **SMTP Host**: `smtp.gmail.com`
+- **SMTP Port**: `465`
+- **Encryption**: `ssl`
+

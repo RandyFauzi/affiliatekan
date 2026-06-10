@@ -52,3 +52,5 @@ Vendor dapat merekam klik dan konversi menggunakan skrip pelacak sisi klien (*cl
 Sisipkan skrip berikut pada tag `<head>` website vendor:
 ```html
 <script src="[https://domain-affiliatekan.com/tracker.js](https://domain-affiliatekan.com/tracker.js)"></script>
+
+**window.AffiliatekanTracker.trackConversion('ORDER-123', 500000);**

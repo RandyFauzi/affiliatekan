@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://i.imgur.com/vb72GlY.png" width="300" alt="Laravel Logo">
   <br><br>
-  <h1>🚀 Affiliatekan</h1>
+  <h1>Affiliatekan</h1>
   <p><b>Sistem Manajemen Afiliasi B2B (SaaS) Berbasis Open-Source</b></p>
 
   <p>

@@ -1,66 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <h1 align="center">🚀 Affiliatekan</h1>
 </p>
 
-## About Laravel
+<p align="center">
+  <strong>Sistem Manajemen Afiliasi B2B (SaaS) Berbasis Open-Source</strong>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-10.10-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 10">
+  <img src="https://img.shields.io/badge/PHP-8.1-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.1">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.4.19-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Alpine.js-3.15.12-8BC0D0?style=for-the-badge&logo=alpinejs&logoColor=white" alt="Alpine JS">
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📖 Tentang Proyek
 
-## Learning Laravel
+**Affiliatekan** adalah aplikasi internal *Affiliate Tracking SaaS B2B* yang dirancang dengan arsitektur modern untuk memfasilitasi manajemen afiliasi secara transparan dan efisien. Sistem ini menjembatani dua aktor utama dalam ekosistem pemasaran:
+* **Vendor:** Dapat mengelola integrasi tracking, melihat API key, menyalin snippet `tracker.js`, dan memproses alur kerja payout (pembayaran komisi) secara manual.
+* **Affiliate:** Diberdayakan dengan dashboard interaktif untuk memantau performa referral secara real-time, melihat jumlah klik, konversi, saldo komisi yang disetujui, serta saldo yang masih tertunda.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Fitur & Kemampuan Inti
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Proyek ini dibangun dengan fokus pada tiga *capability* arsitektural utama:
+1.  **Tracking Identity Capture:** Melacak identitas referral pengguna menggunakan Vanilla JavaScript SDK mandiri melalui file `public/tracker.js`.
+2.  **Webhook Conversion Ingestion:** Memproses data konversi masuk secara aman melalui endpoint API `POST /api/v1/conversions`.
+3.  **Manual Payout Workflow:** Alur kerja antrean pembayaran komisi yang dikelola langsung dari dashboard vendor.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠 Tech Stack & UI/UX
 
-## Laravel Sponsors
+Aplikasi ini tidak menggunakan implementasi TALL stack penuh, melainkan pendekatan yang lebih ringan dan spesifik:
+* **Backend & API:** Laravel `^10.10` dengan PHP `^8.1`.
+* **Frontend Interactivity:** Alpine.js `^3.15.12` dan Vanilla JS.
+* **Styling & Bundling:** Tailwind CSS `^3.4.19` di-bundle menggunakan Vite `^5`.
+* **UI Guidelines:** Mengusung desain *Glassmorphism* (elemen tembus pandang, shadow lembut, dan sudut membulat) dengan identitas warna utama Primary Blue (`#234cf0`) dan Accent Yellow (`#f4fe00`).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛡️ Arsitektur & Keamanan (Security Boundaries)
 
-### Premium Partners
+Proyek ini menerapkan standar rekayasa perangkat lunak dan keamanan tingkat produksi:
+* **Pencegahan Race Condition:** Menggunakan pola *Service Layer* (`CommissionCalculator`) yang dilengkapi `DB::transaction()`, mekanisme penguncian baris `lockForUpdate()`, dan *unique key* ganda untuk memastikan *idempotency* data saat konversi masuk melalui Webhook.
+* **Pencegahan IDOR (Insecure Direct Object Reference):** Alur payout diamankan dengan dua lapis validasi; otorisasi *tenant-aware* pada `FormRequest` dan pengecekan level controller.
+* **API Gatekeeper:** Melindungi endpoint *webhook* menggunakan middleware kustom `VendorApiKey` untuk memvalidasi header `X-API-KEY`.
+* **Model Security:** Seluruh model domain memberlakukan atribut `$fillable` secara eksplisit untuk mencegah kerentanan *mass assignment*.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🚀 Panduan Integrasi SDK (Untuk Vendor)
 
-## Contributing
+Vendor dapat merekam klik dan konversi menggunakan skrip pelacak sisi klien (*client-side SDK*).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Pasang Script Pelacak**
+Sisipkan skrip berikut pada tag `<head>` website vendor:
+```html
+<script src="[https://domain-affiliatekan.com/tracker.js](https://domain-affiliatekan.com/tracker.js)"></script>

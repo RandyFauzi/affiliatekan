@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
+  <img src="[https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg](https://i.imgur.com/vb72GlY.png)" width="300" alt="Laravel Logo">
   <br><br>
   <h1>🚀 Affiliatekan</h1>
   <p><b>Sistem Manajemen Afiliasi B2B (SaaS) Berbasis Open-Source</b></p>
